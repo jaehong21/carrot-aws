@@ -1,0 +1,32 @@
+version: "3"
+
+services:
+  carrot-aws:
+    depends_on:
+      - postgres
+    build:
+      context: .
+      dockerfile: ./Dockerfile
+    container_name: carrot-aws
+    ports:
+      - "3000:3000"
+    links:
+      - postgres:postgres
+    environment:
+      AWS_ACCESS_KEY_ID: xxx
+      AWS_SECRET_ACCESS_KEY: xxx
+      POSTGRES_HOST: postgres
+      POSTGRES_USER: user
+      POSTGRES_PASSWORD: password
+
+  postgres:
+    image: postgres
+    restart: unless-stopped
+    container_name: postgres
+    ports:
+      - "5432:5432"
+    environment:
+      POSTGRES_USER: user
+      POSTGRES_PASSWORD: password
+#    volumes:
+#      - ./postgresql/:/var/lib/postgresql/data
