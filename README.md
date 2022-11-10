@@ -58,7 +58,7 @@ services:
 ```
 
 ## Running the app
-#### with docker
+### with docker
 Make sure there is no existing postgres image.
 Already existing postgres image can cause error because
 different credentials with given values in docker-compose.yaml
@@ -74,7 +74,7 @@ $ docker-compose up -d
 ```
 <br />
 
-#### without docker
+### without docker
 ```bash
 # npm i -g @nestjs/cli
 
@@ -107,6 +107,7 @@ $ curl --request GET 'localhost:3000'
 # Get list of valid AWS regions
 $ curl --request GET 'localhost:3000/region'
 ```
+<br />
 
 **GET** /vpc
 ```bash
@@ -162,7 +163,7 @@ $ curl --request POST 'localhost:3000/subnet/ap-northeast-2'
     ├── query
     └── query-handler
 ```
-#### Adapter
+### Adapter
 ```bash
 ├── adapter
     ├── controller
@@ -186,15 +187,17 @@ Adapter contains implementation of **controller** and **repository**
 Which can be easily convertible to other controllers and repositories.
 (Port & Adapter is still working on)
 
-#### Usecase (Query & Command)
+### Usecase (Query & Command)
 ```typescript
-// Query
-type VpcQueryDto = {};
-export class VpcQuery implements IQuery {
-  constructor(readonly vpcQueryDto: VpcQueryDto) {}
+// Command
+type VpcCommandDto = {
+  region: AwsRegion;
+};
+export class VpcCommand implements ICommand {
+  constructor(readonly vpcCommandDto: VpcCommandDto) {}
 }
 
-// QueryHandler
+// CommandHandler
 @Injectable()
 @CommandHandler(VpcCommand)
 export class VpcCommandHandler
@@ -216,7 +219,7 @@ export class VpcCommandHandler
 Usecase is based on CQRS pattern which is composed with command and query. 
 Supported by @nestjs/cqrs package, it broadcasts Command/Query/Event
 
-#### Model
+### Model
 ```typescript
 export class VpcModel implements VpcType, IModel {
   constructor(properties: VpcType) {
@@ -241,7 +244,7 @@ export class VpcModel implements VpcType, IModel {
 Model is similar to the concept of Domain.
 Which is the key and the base of the program.
 
-#### Entity
+### Entity
 ```typescript
 @Entity('vpc_tb')
 export class VpcEntity implements IEntity {
@@ -257,7 +260,7 @@ export class VpcEntity implements IEntity {
 Implementation of Entity in Postgresql database.
 There are specific database configuration on `config` folder.
 
-#### Mapper
+### Mapper
 ```typescript
 export abstract class IMapper<T, E> {
   abstract createEntity(T: IModel): E;
@@ -266,7 +269,7 @@ export abstract class IMapper<T, E> {
 ```
 Mapper that converts between Model(Domain) and Entity
 
-#### Cron
+### Cron
 ```typescript
 @Cron(CronExpression.EVERY_5_MINUTES)
   async handleCron() {
@@ -288,9 +291,9 @@ Guarantees update VPC & Subnet information for every 5 minutes
 ## Contact
 
 - Author - Jung Jaehong
-- Portfolio - [https://ww.nostion.so/jaehong21](https://www.notion.so/jaehong21/Jaehong-Jung-371e37a4015a4189bc329b419cc241c7)
+- Portfolio - [https://www.notion.so/jaehong21](https://www.notion.so/jaehong21/Jaehong-Jung-371e37a4015a4189bc329b419cc241c7)
 - LinkedIn - [jaehong21](https://www.linkedin.com/in/jaehong21/)
 
 ## License
 
-Nest is [MIT licensed]().
+Nest is [MIT licensed](). <br />
