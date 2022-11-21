@@ -294,6 +294,9 @@ Guarantees update VPC & Subnet information for every 5 minutes
 - Portfolio - [https://www.notion.so/jaehong21](https://www.notion.so/jaehong21/Jaehong-Jung-371e37a4015a4189bc329b419cc241c7)
 - LinkedIn - [jaehong21](https://www.linkedin.com/in/jaehong21/)
 
-## License
+## References
 
 Nest is [MIT licensed](). <br />
+https://github.com/chungjung-d/create-nestjs-hexagonal <br />
+https://learn.microsoft.com/en-us/azure/architecture/patterns/event-sourcing <br />
+https://learn.microsoft.com/ko-kr/azure/architecture/patterns/cqrs <br />
