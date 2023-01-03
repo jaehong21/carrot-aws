@@ -7,8 +7,6 @@
 
 ## Introduction
 
-<a href="https://aws.amazon.com/" target="blank"><img src="https://voicefoundry.com/wp-content/uploads/2018/09/feature-aws.jpg" width="300" alt="Nest Logo" /></a>
-
 [//]: # (<a href="https://nestjs.com/" target="blank"><img src="https://nestjs.com/img/logo-small.svg" width="140" alt="Nest Logo" /></a>)
 NestJS is a progressive Node.js Framework
 <br />
