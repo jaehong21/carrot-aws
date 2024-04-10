@@ -289,7 +289,7 @@ Guarantees update VPC & Subnet information for every 5 minutes
 ## Contact
 
 - Author - Jung Jaehong
-- Portfolio - [https://www.notion.so/jaehong21](https://www.notion.so/jaehong21/Jaehong-Jung-371e37a4015a4189bc329b419cc241c7)
+- Portfolio - https://jaehong21.com
 - LinkedIn - [jaehong21](https://www.linkedin.com/in/jaehong21/)
 
 ## References
